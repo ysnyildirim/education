@@ -23,7 +23,7 @@ import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/prs/v1/educations")
+@RequestMapping(value = "/api/edu/v1/educations")
 public class EducationController {
     private final EducationService educationService;
     private final Mapper<Education, EducationDto> mapper = new Mapper<>(EducationService::toDto);
