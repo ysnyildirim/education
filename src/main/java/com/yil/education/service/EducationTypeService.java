@@ -12,9 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class EducationTypeService {
-
     private final EducationTypeRepository educationTypeRepository;
-
 
     public static EducationTypeDto toDto(EducationType educationType) throws NullPointerException {
         if (educationType == null)
@@ -26,13 +24,10 @@ public class EducationTypeService {
     }
 
     public List<EducationType> findAll() {
-
         return educationTypeRepository.findAll();
     }
 
     public EducationType findById(Integer id) throws EducationTypeNotFoundException {
         return educationTypeRepository.findById(id).orElseThrow(EducationTypeNotFoundException::new);
-
-
     }
 }

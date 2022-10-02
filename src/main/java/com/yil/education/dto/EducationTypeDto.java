@@ -11,7 +11,6 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class EducationTypeDto implements Serializable {
     private Integer id;
     private String name;

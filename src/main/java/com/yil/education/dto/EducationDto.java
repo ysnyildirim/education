@@ -7,12 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class EducationDto implements Serializable {
     private Long id;
     private String name;

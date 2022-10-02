@@ -2,23 +2,19 @@ package com.yil.education.controller;
 
 import com.yil.education.base.ApiConstant;
 import com.yil.education.base.Mapper;
+import com.yil.education.base.PageDto;
 import com.yil.education.dto.CreateEducationDataDto;
 import com.yil.education.dto.EducationDto;
 import com.yil.education.exception.EducationTypeNotFoundException;
 import com.yil.education.model.Education;
-import com.yil.education.base.PageDto;
 import com.yil.education.service.EducationService;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 @RequiredArgsConstructor
@@ -27,7 +23,6 @@ import javax.validation.Valid;
 public class EducationController {
     private final EducationService educationService;
     private final Mapper<Education, EducationDto> mapper = new Mapper<>(EducationService::toDto);
-
 
     @GetMapping
     public ResponseEntity<PageDto<EducationDto>> findAll(
@@ -56,7 +51,6 @@ public class EducationController {
                                   @Valid @RequestBody CreateEducationDataDto dto) throws EducationTypeNotFoundException {
         educationService.replace(id, dto, authenticatedUserId);
         return ResponseEntity.ok().body("Eğitim bilgisi güncellendi.");
-
     }
 
     @DeleteMapping(value = "/{id}")
@@ -68,4 +62,3 @@ public class EducationController {
         return ResponseEntity.ok("Eğitim datası silindi.");
     }
 }
-

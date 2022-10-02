@@ -11,21 +11,16 @@ import java.util.Date;
 
 @Component
 public class SetupDataLoader implements ApplicationListener<ContextStartedEvent> {
-
-
     @Autowired
     private EducationTypeRepository educationTypeRepository;
-
 
     @Override
     public void onApplicationEvent(ContextStartedEvent event) {
         System.out.println("Start Up Events");
         System.out.println(new Date(event.getTimestamp()));
         System.out.println("----------------------");
-
         initEducationTypes();
     }
-
 
     private void initEducationTypes() {
         educationTypeRepository.save(EducationType.builder().id(1).name("İlkokul").build());
@@ -36,5 +31,4 @@ public class SetupDataLoader implements ApplicationListener<ContextStartedEvent>
         educationTypeRepository.save(EducationType.builder().id(6).name("Doktora").build());
         educationTypeRepository.save(EducationType.builder().id(7).name("Okur-Yazar Değil").build());
     }
-
 }
