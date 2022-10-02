@@ -46,7 +46,7 @@ public class EducationController {
     public ResponseEntity<String> create(@RequestHeader(value = ApiConstant.AUTHENTICATED_USER_ID) Long authenticatedUserId,
                                          @Valid @RequestBody CreateEducationDataDto dto) throws EducationTypeNotFoundException {
         educationService.save(dto, authenticatedUserId);
-        return ResponseEntity.created(null).body("Eğitim bilgisi eklendi");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Eğitim bilgisi eklendi");
     }
 
     @PutMapping("/{id}")
