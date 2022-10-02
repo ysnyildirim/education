@@ -16,8 +16,7 @@ public class EducationType implements IEntity {
     @Id
     @SequenceGenerator(name = "EDUCATION_TYPE_SEQUENCE_GENERATOR",
             schema = "PRS",
-            sequenceName = "SEQ_EDUCATION_TYPE_ID",
-            allocationSize = 1)
+            sequenceName = "SEQ_EDUCATION_TYPE_ID")
     @GeneratedValue(generator = "EDUCATION_TYPE_SEQUENCE_GENERATOR")
     @Column(name = "ID")
     private Integer id;

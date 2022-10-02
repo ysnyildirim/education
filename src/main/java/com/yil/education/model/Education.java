@@ -20,8 +20,7 @@ public class Education implements IEntity {
     @Id
     @SequenceGenerator(name = "EDUCATION_SEQUENCE_GENERATOR",
             schema = "PRS",
-            sequenceName = "SEQ_EDUCATION_ID",
-            allocationSize = 1)
+            sequenceName = "SEQ_EDUCATION_ID")
     @GeneratedValue(generator = "EDUCATION_SEQUENCE_GENERATOR")
     @Column(name = "ID")
     private Long id;
