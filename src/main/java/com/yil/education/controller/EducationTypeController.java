@@ -7,6 +7,7 @@ import com.yil.education.model.EducationType;
 import com.yil.education.service.EducationTypeService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class EducationTypeController {
     private final EducationTypeService educationTypeService;
     private final Mapper<EducationType, EducationTypeDto> mapper = new Mapper<>(EducationTypeService::toDto);
 
+    @Cacheable("education-type")
     @Operation(summary = "Tüm eğitim tipi bilgilerini getirir.")
     @GetMapping
     public ResponseEntity<List<EducationTypeDto>> findAll() {
